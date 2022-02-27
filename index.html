@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Calculator</title>
+
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/aac5019c51.js" crossorigin="anonymous"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- header for the page -->
+    <header>
+        <h1 class="text-center my-5 text-info header-text-size">Expense Calculator</h1>
+            <!-- <i class="fa-light fa-sack-dollar"></i> -->
+    </header>
+
+
+    <!-- calculator section -->
+    <main>
+        <section class="container-sm">
+            <div class="row align-items-start">
+                <!-- image -->
+                <div class="col-lg-7 col-sm-12">
+                    <img class="img-fluid" src="image/money-2.jpg" alt="">
+                </div>
+
+
+                <!-- form -->
+                <div class="col-lg-5 col-sm-12 bg-light">
+                    <!-- income -->
+                    <div class="d-flex flex-column align-items-center">
+                        <h4 class="mt-5 mb-4">Income</h4>
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-3 my-3">
+                                <label for="income" class="form-label mx-3 fw-500">Income:</label> <br>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control w-100" id="income" placeholder="Your income">
+                            </div>
+                            
+                        </div>
+                        <div class="row d-flex align-items-center my-3">
+                            <p id="notify-income" class="text-danger notify">*Please enter a positive integer</p>
+                        </div>
+                    </div>
+
+
+                    <!-- expense -->
+                    <div class="d-flex flex-column align-items-center">
+                        <h4 class="mb-4">Expenses</h4>
+
+                        <!-- food -->
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-3">
+                                <label for="food" class="form-label mx-3 fw-500">Food:</label> <br>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control w-100" id="food" placeholder="Food expense">
+                            </div>
+                        </div>
+
+                        <div class="row d-flex align-items-center my-3">
+                            <p id="notify-food" class="text-danger notify">*Please enter a positive integer</p>
+                        </div>
+
+                        <!-- rent -->
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-3">
+                                <label for="rent" class="form-label mx-3 fw-500">Rent:</label> <br>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control w-100" id="rent" placeholder="Your rent">
+                            </div>
+                        </div>
+
+                        <div class="row d-flex align-items-center my-3">
+                            <p id="notify-rent" class="text-danger notify">*Please enter a positive integer</p>
+                        </div>
+
+                        <!-- other -->
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-3">
+                                <label for="other" class="form-label mx-3 fw-500">Other:</label> <br>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control w-100" id="other" placeholder="Other expenses">
+                            </div>
+                        </div>
+
+                        <div class="row d-flex align-items-center my-3">
+                            <p id="notify-other" class="text-danger notify">*Please enter a positive integer</p>
+                        </div>
+                    </div>
+                    
+                    <!-- button: calculate -->
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="minus-expenses" class="btn btn-info text-white btn-padding mb-2">Calculate</button>
+                    </div>
+
+                    <!-- total -->
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="mt-3 fw-500 fs-20">Total Expense: <span id="total-expense">4500</span></p>
+                    </div>
+                    
+                    <!-- balance -->
+                    <div class="d-flex flex-column align-items-center fw-500">
+                        <p class=" fs-20">Balance: <span id="balance">5500</span></p>
+                    </div>
+
+                    <div class="row d-flex align-items-center my-3">
+                        <p id="notify-negative-balance" class="text-center text-danger notify">*Expense is larger than income</p>
+                    </div>
+
+                    <!-- save -->
+                    <div class="d-flex justify-content-center align-items-center">
+                        <label for="save" class="form-label mx-2 fw-500">Save:</label> <br>
+                        <input type="text" class="form-control w-25 mx-2" id="save" placeholder="">
+                        <span class="mx-2 fw-500">%</span>
+                        <button id="save-button" class="btn btn-info text-white btn-padding mx-2">Save</button>
+                    </div>
+                    <div class="row d-flex align-items-center my-3">
+                        <p id="notify-save" class="text-center text-danger notify">*Please enter a positive integer</p>
+                    </div>
+
+                    <!-- saving amount -->
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="mt-3 mb-3 fw-500 fs-20">Saving amount: <span id="saving-amount">2000</span></p>
+                    </div>
+
+                    <!-- remaining balance -->
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="mb-4 fw-500 fs-20">Remaining balance: <span id="remaining-balance">2500</span></p>
+                    </div>
+
+                    <div class="row d-flex align-items-center my-3">
+                        <p id="notify-less" class="text-center text-danger notify">*Save amount too large!</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- no footer -->
+
+    <!-- js script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
